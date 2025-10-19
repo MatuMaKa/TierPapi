@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="Tiers-Placeholders">
+  <artifact type="jar" build-on-make="true" name="Tiers-Placeholders">
     <output-path>$PROJECT_DIR$/out/artifacts/Tiers_Placeholders</output-path>
     <root id="archive" name="Tiers-Placeholders.jar">
       <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/plugin.yml" />

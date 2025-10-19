@@ -14,6 +14,9 @@ public final class TiersPlaceholders extends JavaPlugin {
             new mctiers().register();
             new pvptiers().register();
             new subtiers().register();
+        } else {
+            getLogger().warning("PlaceholderAPI not found! Disabling Tiers-Placeholders plugin.");
+            Bukkit.getPluginManager().disablePlugin(this);
         }
     }
 

@@ -1,18 +1,17 @@
 package xyz.matumaka.tiers.util;
 
-import org.json.JSONObject;
-import java.lang.String;
-
 public class parseTierPlaceholder {
 
-    public static String parseTierPlaceholder(JSONObject json, String params) {
+    public static String parseTierPlaceholder(MiniJSONObject json, String params) {
         params = params.toLowerCase();
 
+        // Simple points
         if (params.equals("points") && json.has("points")) {
             return String.valueOf(json.getInt("points"));
         }
 
-        if (params.contains("_tier") || params.contains("_peak")) {
+        // Tier or Peak placeholders
+        if (params.endsWith("_tier") || params.endsWith("_peak")) {
             String[] parts = params.split("_");
             if (parts.length < 2) return "Invalid";
 
@@ -21,10 +20,10 @@ public class parseTierPlaceholder {
             boolean isPeak = params.endsWith("_peak");
 
             if (!json.has("rankings")) return "No rankings";
-            JSONObject rankings = json.getJSONObject(gamemode);
-            if (!rankings.has("gamemode")) return "No gamemode";
+            MiniJSONObject rankings = json.getJSONObject("rankings");
 
-            JSONObject modeObj = rankings.getJSONObject(gamemode);
+            if (!rankings.has(gamemode)) return "No gamemode";
+            MiniJSONObject modeObj = rankings.getJSONObject(gamemode);
 
             boolean retired = modeObj.has("retired") && modeObj.getBoolean("retired");
             String retiredPrefix = retired ? "R" : "";
@@ -44,6 +43,7 @@ public class parseTierPlaceholder {
                 return peakPrefix + peakTier;
             }
         }
-        return "Unknown placeholder";
+
+        return "Invalid";
     }
 }

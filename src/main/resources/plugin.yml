@@ -1,0 +1,8 @@
+name: Tiers-Placeholders
+version: '1.0'
+main: xyz.matumaka.tiers.TiersPlaceholders
+api-version: '1.21'
+load: STARTUP
+authors: [ MatuMaKa ]
+description: Puts tiers placeholders in the game. (Subtiers, McTiers, PvPTiers)
+softdepend: [ PlaceholderAPI ]

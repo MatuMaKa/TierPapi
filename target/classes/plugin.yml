@@ -1,8 +1,18 @@
-name: Tiers-Placeholders
-version: '1.0'
-main: xyz.matumaka.tiers.TiersPlaceholders
+name: TierPapi
+version: '1.2'
+main: xyz.matumaka.tiers.TierPapi
 api-version: '1.21'
 website: https://github.com/MatuMaKa/tiers-placeholders
 authors: [ MatuMaKa ]
-description: Puts tiers placeholders in the game. (Subtiers, McTiers, PvPTiers)
+description: Puts tiers placeholders in the game. (Subtiers, McTiers, PvPTiers, NovaTiers)
 depend: [ PlaceholderAPI ]
+commands:
+  tierpapi:
+    permission: tierpapi.command.reload
+    permission-message: You do not have permission to use this command.
+    description: Main command of TierPapi
+    usage: /tierpapi
+permissions:
+  tierpapi.command.reload:
+    description: Allows the player to use the tierpapi command
+    default: op

@@ -1,0 +1,53 @@
+package xyz.matumaka.tiers.tiers;
+
+import me.clip.placeholderapi.expansion.PlaceholderExpansion;
+import org.bukkit.OfflinePlayer;
+import org.jetbrains.annotations.NotNull;
+import xyz.matumaka.tiers.util.MiniJSONObject;
+import xyz.matumaka.tiers.util.SimpleJsonParser;
+import xyz.matumaka.tiers.util.ParseTierPlaceholderNew;
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.Map;
+
+public class Novatiers extends PlaceholderExpansion {
+
+    @Override
+    @NotNull
+    public String getIdentifier() { return "novatiers"; }
+
+    @Override
+    @NotNull
+    public String getAuthor() { return "MatuMaKa"; }
+
+    @Override
+    @NotNull
+    public String getVersion() { return "1.0.0"; }
+
+    @Override
+    public String onRequest(OfflinePlayer player, @NotNull String params) {
+        String username = player.getName();
+
+        try {
+            String url = "https://managing-jaquith-lmaozeekid-5bf1cd1b.koyeb.app/api/v1/overall?search=" + username;
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .build();
+
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            Map<String, Object> map = SimpleJsonParser.parse(response.body());
+            MiniJSONObject json = new MiniJSONObject(map);
+
+            return ParseTierPlaceholderNew.parseTierPlaceholderNew(json, params);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+}

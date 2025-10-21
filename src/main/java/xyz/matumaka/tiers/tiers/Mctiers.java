@@ -1,8 +1,9 @@
 package xyz.matumaka.tiers.tiers;
 
+import xyz.matumaka.tiers.TierPapi;
 import xyz.matumaka.tiers.util.MiniJSONObject;
 import xyz.matumaka.tiers.util.SimpleJsonParser;
-import xyz.matumaka.tiers.util.parseTierPlaceholder;
+import xyz.matumaka.tiers.util.ParseTierPlaceholder;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
@@ -13,7 +14,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Map;
 
-public class mctiers extends PlaceholderExpansion {
+public class Mctiers extends PlaceholderExpansion {
 
     @Override
     @NotNull
@@ -29,6 +30,7 @@ public class mctiers extends PlaceholderExpansion {
 
     @Override
     public String onRequest(OfflinePlayer player, @NotNull String params) {
+        String UNRANKED = TierPapi.getInstance().getConfig().getString("unranked", "-");
         String uuid = player.getUniqueId().toString().replace("-", "");
 
         try {
@@ -43,11 +45,11 @@ public class mctiers extends PlaceholderExpansion {
             Map<String, Object> map = SimpleJsonParser.parse(response.body());
             MiniJSONObject json = new MiniJSONObject(map);
 
-            return parseTierPlaceholder.parseTierPlaceholder(json, params);
+            return ParseTierPlaceholder.parseTierPlaceholder(json, params);
 
         } catch (Exception e) {
             e.printStackTrace();
-            return "Error";
+            return UNRANKED;
         }
     }
 }

@@ -1,0 +1,20 @@
+unranked: "-"
+tier: "%prefix%%tier%%suffix%"
+
+# NOT ADDED YET
+# The time between ticks to refresh the cache
+# refresh: 72000
+
+tiers:
+  prefix:
+    1: "&a "
+    2: "&a "
+    3: "&a "
+    4: "&a "
+    5: "&a "
+  suffix:
+    1: " &a"
+    2: " &a"
+    3: " &a"
+    4: " &a"
+    5: " &a"

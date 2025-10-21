@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="TierPapi">
+    <output-path>$PROJECT_DIR$/out/artifacts/TierPapi</output-path>
+    <root id="archive" name="TierPapi.jar">
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/plugin.yml" />
+      <element id="module-output" name="tiers-placeholders" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/config.yml" />
+    </root>
+  </artifact>
+</component>

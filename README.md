@@ -1,5 +1,5 @@
-# Tiers-Placeholders
-Puts tiers placeholders in the game. (Subtiers, McTiers, PvPTiers)
+# TierPapi
+Puts tiers placeholders in the game. (Subtiers, McTiers, PvPTiers, Novatiers)
 
 **Examples:**
 ```

@@ -14,4 +14,8 @@ Puts tiers placeholders in the game. (Subtiers, McTiers, PvPTiers, Novatiers)
 %subtiers_[gamemode]_tier%
 %subtiers_[gamemode]_peak%
 %subtiers_points%
+
+%novatiers_[gamemode]_tier%
+%novatiers_[gamemode]_peak%
+%novatiers_points%
 ```

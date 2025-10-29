@@ -1,5 +1,5 @@
 name: TierPapi
-version: '1.2'
+version: '1.3'
 main: xyz.matumaka.tiers.TierPapi
 api-version: '1.21'
 website: https://github.com/MatuMaKa/tiers-placeholders

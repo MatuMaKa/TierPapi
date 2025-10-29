@@ -5,7 +5,7 @@ import xyz.matumaka.tiers.TierPapi;
 import java.util.List;
 import java.util.Map;
 
-public class ParseTierPlaceholderNew {// You can later load this from config
+public class ParseTierPlaceholderNew {
 
     public static String parseTierPlaceholderNew(Object jsonData, String params) {
         String UNRANKED = TierPapi.getInstance().getConfig().getString("unranked", "-");
@@ -18,18 +18,16 @@ public class ParseTierPlaceholderNew {// You can later load this from config
 
         Map<String, Object> player = (Map<String, Object>) players.get(0);
 
-        // Total points
         if (params.equals("points") && player.containsKey("total_points")) {
             return String.valueOf(player.get("total_points"));
         }
 
-        // Kit-specific placeholders
         if (params.endsWith("_tier") || params.endsWith("_peak") || params.endsWith("_points")) {
             String[] parts = params.split("_");
             if (parts.length < 2) return UNRANKED;
 
-            String kitName = params.substring(0, params.lastIndexOf('_')); // handle underscores
-            String type = parts[parts.length - 1]; // tier / peak / points
+            String kitName = params.substring(0, params.lastIndexOf('_'));
+            String type = parts[parts.length - 1];
 
             if (!player.containsKey("kits")) return UNRANKED;
             List<Object> kits = (List<Object>) player.get("kits");
@@ -58,11 +56,10 @@ public class ParseTierPlaceholderNew {// You can later load this from config
                             break;
                     }
 
-                    return UNRANKED; // fallback if type exists but data is null
+                    return UNRANKED;
                 }
             }
 
-            // Kit not found
             return UNRANKED;
         }
 

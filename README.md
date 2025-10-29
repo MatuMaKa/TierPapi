@@ -1,7 +1,7 @@
 # TierPapi
 Puts tiers placeholders in the game. (Subtiers, McTiers, PvPTiers, Novatiers)
 
-**Examples:**
+**Placeholders:**
 ```
 %mctiers_[gamemode]_tier%
 %mctiers_[gamemode]_peak%
@@ -18,4 +18,10 @@ Puts tiers placeholders in the game. (Subtiers, McTiers, PvPTiers, Novatiers)
 %novatiers_[gamemode]_tier%
 %novatiers_[gamemode]_peak%
 %novatiers_points%
+```
+
+**Commands**
+```
+/tierpapi reload - reload the config file
+/tierpapi help - get all the commands with /tierpapi
 ```
